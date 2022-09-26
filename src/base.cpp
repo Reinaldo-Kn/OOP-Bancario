@@ -3,9 +3,10 @@
 #include  <time.h> //gerar numero aleatorio
 #include <cstdlib> //gerar numero aleatorio
 #include <vector>
-#include <locale>
 #include <string>
 
+using std::cout;
+using std::endl;
 
 void Base::setOpcao(int opcao){
     this->Opcao = opcao;
@@ -38,8 +39,6 @@ void Base::setContaID(){
     std::string aleatorioString = std::to_string(rand() % 10000);
     std::string contaID = digitoString.append(aleatorioString);
     
-    std::cout << Digito << std::endl;
-    std::cout << contaID << std::endl;
     this->ContaID.push_back(contaID);
 };
 void Base::relatorio(){
@@ -47,4 +46,38 @@ void Base::relatorio(){
         std::cout << ContaID[i] << std::endl;
     }
 
+};
+void Base::setDeposito(double deposito){
+    if(deposito > 0){
+        this->Deposito = Deposito+ deposito;
+    }else{
+        cout << "Valor invalido, deposito precisa ser maior que 0 reais, voce digitou: " << deposito << endl;
+    }
+    
+};
+double Base::getDeposito(){
+    return this->Deposito;
+};
+void Base::setPix(double pix){
+    if(pix > 0){
+        this->Pix = pix;
+    }else{
+        cout << "Valor invalido, pix precisa ser maior que 0 reais, voce digitou: " << pix << endl;
+    }
+};
+double Base::getPix(){
+    return this->Pix;
+};
+void Base::setDonoNome(Titular nome){
+    this->Dono = nome;
+};
+Titular Base::getDonoNome(){
+    return this->Dono;
+};
+void Base::setDonoCpf(Titular cpf){
+    this->Dono = cpf;
+};
+Titular Base::getDonoCpf(){
+    return this->Dono;
 }
+ 
