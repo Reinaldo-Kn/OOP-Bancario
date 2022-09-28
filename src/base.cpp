@@ -73,8 +73,8 @@ double Base::getDebito(){
     return this->Debito;
 };
 void Base::Pix(Base* recebe, double valor){
-    if(valor > Total){
-        std::cout << " Voce nao pode enviar "<< valor <<" !! Seu saldo eh de: "<< Total << std::endl; 
+    if(valor > Limite){
+        std::cout << " Voce nao pode enviar "<< valor <<" !! Seu limite de saldo eh de: "<< Limite << std::endl; 
     }
     else{
         Debito = Debito + valor;

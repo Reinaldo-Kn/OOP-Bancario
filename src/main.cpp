@@ -68,12 +68,13 @@ int main(int argc, char const *argv[])
    cout<<"Rendimento Mensal: "<< conta3->calcularRendimentoMensal() <<endl;
    cout<<"Rendimento Anual: "<< conta3->calcularRendimentoAnual() <<endl;
    
-    // conta3->Pix(conta2,200);
-    // cout<< "Conta2: "<<conta2->calcularSaldo()<<endl;
-    // cout<< "Conta3: " << conta3->calcularSaldo() <<endl;
+    conta3->Pix(conta2,200);
+    cout<< "Conta2: "<<conta2->calcularSaldo()<<endl;
+    cout<< "Conta3: " << conta3->calcularSaldo() <<endl;
     conta2->Pix(conta1,7000);
     cout<< "Conta1: "<<conta1->calcularSaldo()<<endl;
     cout<< "Conta3: " << conta2->calcularSaldo() <<endl;
+    
    
     return 0;
 }
