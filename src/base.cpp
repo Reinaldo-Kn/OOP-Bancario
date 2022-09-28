@@ -1,12 +1,13 @@
 #include "base.h"
 #include <iostream>
-#include  <time.h> //gerar numero aleatorio
-#include <cstdlib> //gerar numero aleatorio
+#include <algorithm>
 #include <vector>
 #include <string>
+#include <random>
 
 using std::cout;
 using std::endl;
+using std::cin;
 
 void Base::setOpcao(int opcao){
     this->Opcao = opcao;
@@ -34,9 +35,11 @@ int Base::getDigito(){
 };
 void Base::setContaID(){
     Base::getDigito();
-    std::srand( time(NULL) );
+    std::random_device rd;
+    std::mt19937 mt(rd()); 
+    std::uniform_int_distribution<> dist(1000, 9999); 
     std::string digitoString = std::to_string(Digito);
-    std::string aleatorioString = std::to_string(rand() % 10000);
+    std::string aleatorioString = std::to_string(dist(mt));
     std::string contaID = digitoString.append(aleatorioString);
     
     this->ContaID.push_back(contaID);
@@ -58,16 +61,44 @@ void Base::setDeposito(double deposito){
 double Base::getDeposito(){
     return this->Deposito;
 };
-void Base::setPix(double pix){
-    if(pix > 0){
-        this->Pix = pix;
+void Base::setDebito(double debito){
+    if(debito > 0){
+        this->Debito = Debito+debito;
     }else{
-        cout << "Valor invalido, pix precisa ser maior que 0 reais, voce digitou: " << pix << endl;
+        cout << "Valor invalido, debito precisa ser maior que 0 reais, voce digitou: " << debito << endl;
+    }
+    
+};
+double Base::getDebito(){
+    return this->Debito;
+};
+void Base::Pix(Base* recebe, double valor){
+    if(valor > Total){
+        std::cout << " Voce nao pode enviar "<< valor <<" !! Seu saldo eh de: "<< Total << std::endl; 
+    }
+    else{
+        Debito = Debito + valor;
+        recebe->setDeposito(valor);
+        std::cout << " O Pix de " << valor << " foi enviado! " << std::endl;
     }
 };
-double Base::getPix(){
-    return this->Pix;
-};
+// void Base::setPix(double pix){
+//     if(pix > 0){
+//         this->Pix = pix;
+//     }else{
+//         cout << "Valor invalido, pix precisa ser maior que 0 reais, voce digitou: " << pix << endl;
+//     }
+// };
+// double Base::getPix(){
+//     string conta;
+//     cout<< "Qual conta vai fazer a traferencia: " <<endl;
+//     cin >> conta;
+//     if(std::find(ContaID.begin(), ContaID.end(), conta) != ContaID.end()) {
+//         cout << "Tenhooo" <<endl;
+// } else {
+//     cout << "nn" <<endl;
+// }
+// };
 void Base::setDonoNome(Titular nome){
     this->Dono = nome;
 };

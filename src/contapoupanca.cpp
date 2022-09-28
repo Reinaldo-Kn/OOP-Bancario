@@ -5,11 +5,11 @@ using std::cout;
 using std::endl;
 
 double ContaPoupanca:: calcularSaldo(){
-    Saldo = Saldo+ Deposito;
-    return this->Saldo;
+   Total = Saldo+ Deposito - Debito;
+    return this->Total;
 };
 double ContaPoupanca:: calcularLimite(){
-    Limite = Saldo;
+    Limite = Total;
     return this->Limite;
 };
 void ContaPoupanca:: setTaxaJuros(double taxaJuros){
@@ -23,8 +23,8 @@ const double ContaPoupanca:: getTaxaJuros(){
     return this->TaxaJuros;
 };
 double ContaPoupanca:: calcularRendimentoMensal(){
-  return this->SaldoComJuros = (TaxaJuros*Saldo)/12 + Saldo;
+  return this->SaldoComJuros = (TaxaJuros*Total)/12 + Total;
 };
 double ContaPoupanca:: calcularRendimentoAnual(){
-      return this->SaldoComJuros = (TaxaJuros*Saldo) + Saldo;
+      return this->SaldoComJuros = (TaxaJuros*Total) + Total;
 };

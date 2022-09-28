@@ -12,10 +12,10 @@ void ContaEspecial:: setPorcentoLimite(double porcentoLimite){
     }
 };
 double ContaEspecial:: calcularSaldo(){
-    Saldo = Saldo + Deposito;
-    return this->Saldo;
+    Total = Saldo + Deposito - Debito;
+    return this->Total;
 };
 double ContaEspecial:: calcularLimite(){
-    Limite = Saldo + (Saldo* PorcentoLimite);
+    Limite = Total + (Total* PorcentoLimite);
     return this->Limite;
 };

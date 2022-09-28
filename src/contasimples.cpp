@@ -5,10 +5,10 @@ using std::endl;
 
 
 double ContaSimples:: calcularSaldo(){
-    Saldo = Saldo+ Deposito;
-    return this->Saldo;
+    Total = Saldo+ Deposito - Debito;
+    return this->Total;
 };
 double ContaSimples:: calcularLimite(){
-    Limite = Saldo;
+    Limite = Total;
     return this->Limite;
 }
